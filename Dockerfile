@@ -10,6 +10,7 @@ RUN chmod +x ./l_tcc_tools_p_2021.3.0.451_offline.sh
 RUN ./l_tcc_tools_p_2021.3.0.451_offline.sh -x -f ./
 RUN cd l_tcc_tools_p_2021.3.0.451_offline
 RUN chmod +x ./l_tcc_tools_p_2021.3.0.451_offline.sh
-RUN ./l_tcc_tools_p_2021.3.0.451_offline.sh --action=install --eula=accept --intel-sw-improvement-program-consent=no --silent
+RUN ./l_tcc_tools_p_2021.3.0.451_offline.sh 
+#--action=install --eula=accept --intel-sw-improvement-program-consent=no --silent
 RUN source ~/intel/tcc_tools/latest/env/vars.sh
 
