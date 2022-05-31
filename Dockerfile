@@ -8,6 +8,7 @@ WORKDIR /sample
 COPY l_tcc_tools_p_2021.3.0.451_offline.sh /sample
 RUN chmod +x ./l_tcc_tools_p_2021.3.0.451_offline.sh
 RUN ./l_tcc_tools_p_2021.3.0.451_offline.sh -x -f ./
+RUN chmod +x ./l_tcc_tools_p_2021.3.0.451_offline
 RUN ls -al
 RUN cd l_tcc_tools_p_2021.3.0.451_offline
 RUN ls -al
