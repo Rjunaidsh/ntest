@@ -28,18 +28,17 @@ printf "%s\n%s\n%s\n%s\n%s\n%s\n" \
 # Preconfigured folders (above) should be checked out on branch/tag to be built.
 # Ultimately, might be better to copy in and copy out of the container.
 # For now, don't forget to:
-# $ chmod -R 777 ${dirBuildSource}/build* ${dirBuildSource}/libraries*
-# $ chmod -R 755 ${dirBuildSource}/2022.1
+$ chmod -R 777 ${dirBuildSource}/build* ${dirBuildSource}/libraries*
+$ chmod -R 755 ${dirBuildSource}/2022.1
 
 
 # Start Docker container and attach build source and build target folders as a volume.
 dirBuildRoot=/home/tcc/build
-#dockerImage=amr-registry.caas.intel.com/idev/tcc/nn/base_public
 dockerImage=hub.docker.com/repository/docker
 echo "Using ${dockerImage} as source of Docker build container."
 dockerCommand="docker run -it -v ${dirBuildSource}:${dirBuildRoot}:z ${dockerImage}"
 echo "${dockerCommand}"
-# eval "${dockerCommand}"
+eval "${dockerCommand}"
 
 
 
@@ -97,7 +96,7 @@ cd ${dirBuildRoot}/build
 make -C edk2/BaseTools
 cd edk2
 # shellcheck source=/dev/null
-source edksetup.sh
+source edksetup.sh-
 patch -p1 < ${dirBuildRoot}/libraries.compute.tcc-tools.infrastructure/ci/edk2/tcc_target.patch
 sed -i "s+path_to_detector.inf+${dirBuildRoot}/libraries.compute.tcc-tools/tools/rt_checker/efi/Detector.inf+g" ShellPkg/ShellPkg.dsc
 build
