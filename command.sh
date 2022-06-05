@@ -1,35 +1,16 @@
-#!/usr/bin/env bash
-
-# Attempt to build a "host" and "target" package that duplicates
-# the contents of the 2022.1.0 tcc download pakage.
-
-
-# ############################################################################
-
-# First draft: copy this script into docker container and run.
-# Second draft: two scripts, one to start container and one to perform build duties.
-# Third draft: setup folder to be mounted by container.
-# See Dockerfile in tcc repo(s) for a definition of build environment.
-# Add acipca-tools package to the Dockerfile, needed for target builds.
-
-# ############################################################################
 dirBuildSource=/home/ubuntu/src/tcc
-# Preconfigured folders to attach to the Docker build container:
+
 printf "%s\n%s\n%s\n%s\n%s\n%s\n" \
-"${dirBuildSource}/2022.1/" \
+"${dirBuildSource}/2021.3.0/" \
 "${dirBuildSource}/build-host/" \
 "${dirBuildSource}/build-target/" \
 "${dirBuildSource}/libraries.compute.tcc-tools/" \
 "${dirBuildSource}/libraries.compute.tcc-tools.docs/" \
 "${dirBuildSource}/libraries.compute.tcc-tools.infrastructure/"
 
-# Preconfigured folders (above) should be checked out on branch/tag to be built.
-# Ultimately, might be better to copy in and copy out of the container.
-# For now, don't forget to:
 $ chmod -R 777 ${dirBuildSource}/build* ${dirBuildSource}/libraries*
-$ chmod -R 755 ${dirBuildSource}/2022.1
+$ chmod -R 755 ${dirBuildSource}/2021.3.0
 
-# Start Docker container and attach build source and build target folders as a volume.
 dirBuildRoot=/home/tcc/build
 dockerImage=hub.docker.com/repository/docker
 echo "Using ${dockerImage} as source of Docker build container."
@@ -54,8 +35,6 @@ make VERBOSE=1  # 2>&1 | tee ${dirBuildRoot}/build/build_log.txt
 make doc        # -j$(nproc)
 make install    # -j$(nproc)
 
-# End of host build ???
-# Rename the "build" folder to "build-host"
 cd ..
 mv ${dirBuildRoot}/build ${dirBuildRoot}/build-host
 
