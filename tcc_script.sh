@@ -12,9 +12,8 @@
 # See Dockerfile in tcc repo(s) for a definition of build environment.
 # Add acipca-tools package to the Dockerfile, needed for target builds.
 
-
 # ############################################################################
-
+from centos:centos7.9.2009
 dirBuildSource=/home/ubuntu/src/tcc
 # Preconfigured folders to attach to the Docker build container:
 printf "%s\n%s\n%s\n%s\n%s\n%s\n" \
@@ -31,14 +30,13 @@ printf "%s\n%s\n%s\n%s\n%s\n%s\n" \
 $ chmod -R 777 ${dirBuildSource}/build* ${dirBuildSource}/libraries*
 $ chmod -R 755 ${dirBuildSource}/2022.1
 
-
 # Start Docker container and attach build source and build target folders as a volume.
 dirBuildRoot=/home/tcc/build
 dockerImage=hub.docker.com/repository/docker
 echo "Using ${dockerImage} as source of Docker build container."
 dockerCommand="docker run -it -v ${dirBuildSource}:${dirBuildRoot}:z ${dockerImage}"
 echo "${dockerCommand}"
-eval "${dockerCommand}"
+#eval "${dockerCommand}"
 
 
 
