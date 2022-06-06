@@ -1,14 +1,6 @@
 
 FROM centos:centos7.9.2009
-RUN apt-get update \
- && apt-get install --assume-yes --no-install-recommends --quiet \
-    ca-certificates \
-    cmake \
-    git \
-    g++ \
-    make \
-    libzip-dev \
- && apt-get clean all
+RUN apt-get update && apt-get install cmake
 RUN mkdir /sample
 WORKDIR /sample
 COPY command.sh /sample
