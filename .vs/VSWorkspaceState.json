@@ -1,11 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\home",
-    "\\home\\ubuntu",
-    "\\home\\ubuntu\\src",
-    "\\home\\ubuntu\\src\\tcc"
+    "\\home\\tcc\\build",
+    "\\home\\tcc\\build\\build"
   ],
-  "SelectedNode": "\\home\\ubuntu\\src\\tcc\\2022.1",
+  "SelectedNode": "\\home",
   "PreviewInSolutionExplorer": false
 }
