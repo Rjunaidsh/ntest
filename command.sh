@@ -28,18 +28,18 @@ echo "${dockerCommand}"
 # Perform a "host build" (cmake + make).
 # Note that ${dirBuildRoot}/build is used twice: for host build and again for target build.
 # Doing this to minimize path differences between the host and target build results.
-#set -ex   
-#rm -rf ${dirBuildRoot}/build*  # remove folder with contents
-#mkdir ${dirBuildRoot}/build    # make directory with name
-#cd ${dirBuildRoot}/build       # change directory that name
-#cmake -DBUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${dirBuildRoot}/build/host -DHOST_STRUCTURE=ON -DPACKAGE_TYPE=PUBLIC ${dirBuildRoot}/libraries.compute.tcc-tools 
+set -ex   
+rm -rf ${dirBuildRoot}/build*  # remove folder with contents
+mkdir ${dirBuildRoot}/build    # make directory with name
+cd ${dirBuildRoot}/build       # change directory that name
+cmake -DBUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${dirBuildRoot}/build/host -DHOST_STRUCTURE=ON -DPACKAGE_TYPE=PUBLIC ${dirBuildRoot}/libraries.compute.tcc-tools 
 # make VERBOSE=1 -j$(nproc) 2>&1 | tee <build-root>/build/build_log.txt
-#make VERBOSE=1  # 2>&1 | tee ${dirBuildRoot}/build/build_log.txt
-#make doc        # -j$(nproc)
-#make install    # -j$(nproc)
+make VERBOSE=1  # 2>&1 | tee ${dirBuildRoot}/build/build_log.txt
+make doc        # -j$(nproc)
+make install    # -j$(nproc)
 
-#cd ..
-#mv ${dirBuildRoot}/build ${dirBuildRoot}/build-host
+cd ..
+mv ${dirBuildRoot}/build ${dirBuildRoot}/build-host
 
 # ############################################################################
 
