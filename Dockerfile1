@@ -1,9 +1,11 @@
 
 FROM centos:centos7.9.2009
-RUN ./cmake_command.sh -x -f ./
 RUN mkdir /sample
 WORKDIR /sample
 COPY command.sh /sample
+COPY cmake_command.sh /sample
+RUN chmod +x ./cmake_command.sh
 RUN chmod +x ./command.sh
+RUN ./cmake_command.sh -x -f ./
 RUN ./command.sh -x -f ./
 
