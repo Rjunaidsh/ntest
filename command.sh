@@ -1,4 +1,4 @@
-dirBuildSource=~/home/ubuntu/src/tcc
+dirBuildSource=./home/ubuntu/src/tcc
 
 printf "%s\n%s\n%s\n%s\n%s\n%s\n" \
 "${dirBuildSource}/2021.3.0/" \
@@ -11,7 +11,7 @@ printf "%s\n%s\n%s\n%s\n%s\n%s\n" \
 $ chmod -R 777 ${dirBuildSource}/build* ${dirBuildSource}/libraries*
 $ chmod -R 755 ${dirBuildSource}/2021.3.0
 
-dirBuildRoot=~/home/tcc/build
+dirBuildRoot=./home/tcc/build
 dockerImage=hub.docker.com/repository/docker
 echo "Using ${dockerImage} as source of Docker build container."
 dockerCommand="docker run -it -v ${dirBuildSource}:${dirBuildRoot}:z ${dockerImage}"
