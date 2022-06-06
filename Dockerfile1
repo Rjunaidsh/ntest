@@ -1,6 +1,6 @@
 
 FROM centos:centos7.9.2009
-RUN apt-get install -y g++ cmake build-essential 
+RUN apt install -y g++ cmake build-essential 
 RUN mkdir /sample
 WORKDIR /sample
 COPY command.sh /sample
