@@ -1,6 +1,6 @@
 FROM centos:centos7.9.2009
 
-  RUN apt install -y cmake
+ADD CMAKE .
 
 RUN mkdir /sample
 WORKDIR /sample
