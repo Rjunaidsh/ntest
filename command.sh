@@ -22,7 +22,7 @@ echo "${dockerCommand}"
 #eval "${dockerCommand}"
 
 
-apt install g++
+apk add g++
 
 # ############################################################################
 
