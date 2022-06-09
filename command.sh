@@ -22,7 +22,7 @@ echo "${dockerCommand}"
 #eval "${dockerCommand}"
 
 
-yum install g++
+yum install cmake
 
 # ############################################################################
 
