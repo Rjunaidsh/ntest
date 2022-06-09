@@ -1,7 +1,4 @@
 FROM centos:centos7.9.2009
-
-ADD CMAKE .
-
 RUN mkdir /sample
 WORKDIR /sample
 COPY command.sh /sample
