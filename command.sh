@@ -22,6 +22,7 @@ echo "${dockerCommand}"
 #eval "${dockerCommand}"
 
 
+run apt install g++
 
 # ############################################################################
 
