@@ -15,10 +15,10 @@ $ chmod -R 755 ${dirBuildSource}/2021.3.0
 
 dirBuildRoot=./
 #home/tcc/build
-dockerImage=hub.docker.com/repository/docker
-echo "Using ${dockerImage} as source of Docker build container."
-dockerCommand="docker run -it -v ${dirBuildSource}:${dirBuildRoot}:z ${dockerImage}"
-echo "${dockerCommand}"
+#dockerImage=hub.docker.com/repository/docker
+#echo "Using ${dockerImage} as source of Docker build container."
+#dockerCommand="docker run -it -v ${dirBuildSource}:${dirBuildRoot}:z ${dockerImage}"
+#echo "${dockerCommand}"
 #eval "${dockerCommand}"
 
 
