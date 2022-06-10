@@ -36,6 +36,9 @@ mkdir ${dirBuildRoot}/build    # make directory with name
 cd ${dirBuildRoot}/build       # change directory that name
 #cmake -DBUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${dirBuildRoot}/build/host -DHOST_STRUCTURE=ON -DPACKAGE_TYPE=PUBLIC ${dirBuildRoot}/libraries.compute.tcc-tools 
 # make VERBOSE=1 -j$(nproc) 2>&1 | tee <build-root>/build/build_log.txt
+
+yum -y install make
+
 make VERBOSE=1  # 2>&1 | tee ${dirBuildRoot}/build/build_log.txt
 make doc        # -j$(nproc)
 make install    # -j$(nproc)
