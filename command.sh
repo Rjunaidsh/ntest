@@ -21,8 +21,9 @@ dirBuildRoot=./
 #echo "${dockerCommand}"
 #eval "${dockerCommand}"
 
+yum -y install cmake
 
-yum install cmake
+#apt-get install cmake
 
 # ############################################################################
 
