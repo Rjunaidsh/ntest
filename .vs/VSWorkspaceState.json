@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\home",
+    "\\home\\build",
+    "\\home\\tcc",
+    "\\home\\tcc\\build",
+    "\\home\\tcc\\build\\build"
   ],
-  "SelectedNode": "\\CMakeLists.txt",
+  "SelectedNode": "\\home\\build",
   "PreviewInSolutionExplorer": false
 }
