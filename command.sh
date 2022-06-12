@@ -48,44 +48,35 @@ yum -y install make
 cd ..
 mv ${dirBuildRoot}/build ${dirBuildRoot}/build-host
 
-# ############################################################################
 
-# Part one of "target build" (cmake + make).
-#set -ex
-# rm -rf ${dirBuildRoot}/build*
-#mkdir ${dirBuildRoot}/build
-#cd ${dirBuildRoot}/build
-#cmake -DBUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${dirBuildRoot}/build/usr -DHOST_STRUCTURE=OFF -DPACKAGE_TYPE=PUBLIC ${dirBuildRoot}/libraries.compute.tcc-tools
-# make VERBOSE=1 -j$(nproc) 2>&1 | tee <build-root>/build/build_log.txt
-#make VERBOSE=1  # 2>&1 | tee ${dirBuildRoot}/build/build_log.txt
-#make doc        # -j$(nproc)
-#make install    # -j$(nproc)
 
 # Part two: turn the usr folder into a tar.gz file.
 
 #rm -rf ${dirBuildRoot}/build/tcc_tools*.tar.gz
 #tar --owner=root --group=root --exclude='usr/tests' -cvzf ${dirBuildRoot}/build/tcc_tools_target_2022.1.0.tar.gz usr
 
-# Part three: add efi module (by way of edk2 project).
-#set -ex
-#mkdir -p /opt
-#cd /opt
-#rm -rf edk2
-#git clone https://github.com/tianocore/edk2.git
-#cd edk2
-#git checkout tags/edk2-stable202105 -B edk2-stable202105
-#git submodule update --init
-#make -C BaseTools
+yum install git
 
-#rm -rf ${dirBuildRoot}/build/edk2
-#cp -r /opt/edk2 ${dirBuildRoot}/build/
-#cd ${dirBuildRoot}/build
-#make -C edk2/BaseTools
-#cd edk2
-# shellcheck source=/dev/null
-#source edksetup.sh-
-#patch -p1 < ${dirBuildRoot}/libraries.compute.tcc-tools.infrastructure/ci/edk2/tcc_target.patch
-#sed -i "s+path_to_detector.inf+${dirBuildRoot}/libraries.compute.tcc-tools/tools/rt_checker/efi/Detector.inf+g" ShellPkg/ShellPkg.dsc
+# Part three: add efi module (by way of edk2 project).
+set -ex
+mkdir -p /opt
+cd /opt
+rm -rf edk2
+git clone https://github.com/tianocore/edk2.git
+cd edk2
+git checkout tags/edk2-stable202105 -B edk2-stable202105
+git submodule update --init
+make -C BaseTools
+
+rm -rf ${dirBuildRoot}/build/edk2
+cp -r /opt/edk2 ${dirBuildRoot}/build/
+cd ${dirBuildRoot}/build
+make -C edk2/BaseTools
+cd edk2
+ shellcheck source=/dev/null
+source edksetup.sh-
+patch -p1 < ${dirBuildRoot}/libraries.compute.tcc-tools.infrastructure/ci/edk2/tcc_target.patch
+sed -i "s+path_to_detector.inf+${dirBuildRoot}/libraries.compute.tcc-tools/tools/rt_checker/efi/Detector.inf+g" ShellPkg/ShellPkg.dsc
 #build
 
 #cd ${dirBuildRoot}/build
