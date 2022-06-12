@@ -38,7 +38,7 @@ cd ${dirBuildRoot}/build       # change directory that name
 
 yum -y install make
 
-make VERBOSE=1 -j $(nproc) 2>&1 | tee ${dirBuildRoot}home/build/build_log.txt
+make VERBOSE=1 #-j $(nproc) 2>&1 | tee ${dirBuildRoot}home/build/build_log.txt
 
 #make VERBOSE=1  # 2>&1 | tee ${dirBuildRoot}/build/build_log.txt
 make doc -j $(nproc)
