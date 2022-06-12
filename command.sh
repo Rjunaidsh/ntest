@@ -55,7 +55,7 @@ mv ${dirBuildRoot}/build ${dirBuildRoot}/build-host
 #rm -rf ${dirBuildRoot}/build/tcc_tools*.tar.gz
 #tar --owner=root --group=root --exclude='usr/tests' -cvzf ${dirBuildRoot}/build/tcc_tools_target_2022.1.0.tar.gz usr
 
-yum install git
+yum -y install git
 
 # Part three: add efi module (by way of edk2 project).
 set -ex
