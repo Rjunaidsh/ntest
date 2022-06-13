@@ -1,3 +1,15 @@
+# Build Dependencies
+yum -y install gcc
+yum install centos-release-scl
+yum install devtoolset-8-gcc devtoolset-8-gcc-c++
+scl enable devtoolset-8 -- bash
+
+yum -y install cmake
+yum -y install make
+yum -y install git
+
+
+
 
 dirBuildSource=./ 
 #home/ubuntu/src/tcc
@@ -21,10 +33,6 @@ dirBuildRoot=./
 #echo "${dockerCommand}"
 #eval "${dockerCommand}"
 
-yum -y install cmake
-
-#apt-get install cmake
-
 # ############################################################################
 
 # Perform a "host build" (cmake + make).
@@ -36,7 +44,7 @@ mkdir ${dirBuildRoot}/build    # make directory with name
 cd ${dirBuildRoot}/build       # change directory that name
 #cmake -DBUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${dirBuildRoot}/build/host -DHOST_STRUCTURE=ON -DPACKAGE_TYPE=PUBLIC ${dirBuildRoot}/libraries.compute.tcc-tools 
 
-yum -y install make
+
 
 #make VERBOSE=1
 #-j $(nproc) 2>&1 | tee ${dirBuildRoot}home/build/build_log.txt
@@ -54,10 +62,6 @@ mv ${dirBuildRoot}/build ${dirBuildRoot}/build-host
 
 #rm -rf ${dirBuildRoot}/build/tcc_tools*.tar.gz
 #tar --owner=root --group=root --exclude='usr/tests' -cvzf ${dirBuildRoot}/build/tcc_tools_target_2022.1.0.tar.gz usr
-
-yum -y install git
-yum -y install gcc
-yum -y install g++
 
 # Part three: add efi module (by way of edk2 project).
 set -ex
