@@ -57,6 +57,7 @@ mv ${dirBuildRoot}/build ${dirBuildRoot}/build-host
 
 yum -y install git
 yum -y install gcc
+yum -y install g++
 
 # Part three: add efi module (by way of edk2 project).
 set -ex
