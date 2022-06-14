@@ -16,7 +16,7 @@ sudo scl enable devtoolset-8 -- bash
 
 sudo apt-get install cmake
 sudo apt-get install make
-sudo apt-get install git
+sudo apt-get install -y git
 sudo apt-get install shellcheck
 
 
