@@ -21,7 +21,7 @@ apt-get install shellcheck
 
 
 
-dirBuildSource=./Home 
+dirBuildSource=/Home 
 #home/ubuntu/src/tcc
 
 printf "%s\n%s\n%s\n%s\n%s\n%s\n" \
@@ -35,7 +35,7 @@ printf "%s\n%s\n%s\n%s\n%s\n%s\n" \
 $ chmod -R 777 ${dirBuildSource}/build* ${dirBuildSource}/libraries*
 $ chmod -R 755 ${dirBuildSource}/2021.3.0
 
-dirBuildRoot=./Home
+dirBuildRoot=/Home
 #home/tcc/build
 #dockerImage=hub.docker.com/repository/docker
 #echo "Using ${dockerImage} as source of Docker build container."
@@ -66,8 +66,8 @@ mv ${dirBuildRoot}/build ${dirBuildRoot}/build-host
 
 # Part two: turn the usr folder into a tar.gz file.
 
-rm -rf ${dirBuildRoot}/build/tcc_tools*.tar.gz
-tar --owner=root --group=root --exclude='usr/tests' -cvzf ${dirBuildRoot}/build/tcc_tools_target_2022.1.0.tar.gz usr
+#rm -rf ${dirBuildRoot}/build/tcc_tools*.tar.gz
+#tar --owner=root --group=root --exclude='usr/tests' -cvzf ${dirBuildRoot}/build/tcc_tools_target_2022.1.0.tar.gz usr
 
 # Part three: add efi module (by way of edk2 project).
 set -ex
