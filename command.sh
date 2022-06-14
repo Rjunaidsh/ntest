@@ -21,7 +21,7 @@ apt-get install shellcheck
 
 
 
-dirBuildSource=/Home 
+dirBuildSource=/ 
 #home/ubuntu/src/tcc
 
 printf "%s\n%s\n%s\n%s\n%s\n%s\n" \
@@ -35,7 +35,7 @@ printf "%s\n%s\n%s\n%s\n%s\n%s\n" \
 $ chmod -R 777 ${dirBuildSource}/build* ${dirBuildSource}/libraries*
 $ chmod -R 755 ${dirBuildSource}/2021.3.0
 
-dirBuildRoot=/Home
+dirBuildRoot=/
 #home/tcc/build
 #dockerImage=hub.docker.com/repository/docker
 #echo "Using ${dockerImage} as source of Docker build container."
