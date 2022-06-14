@@ -85,13 +85,13 @@ patch -p1 < ${dirBuildRoot}/libraries.compute.tcc-tools.infrastructure/ci/edk2/t
 sed -i "s+path_to_detector.inf+${dirBuildRoot}/libraries.compute.tcc-tools/tools/rt_checker/efi/Detector.inf+g" ShellPkg/ShellPkg.dsc
 #build
 
-#cd ${dirBuildRoot}/build
-#rm -rf usr
-#tar -xzf tcc_tools_target_2022.1.0.tar.gz
-#cp edk2/Build/Shell/RELEASE_GCC5/X64/tcc_rt_checker.efi usr/share/tcc_tools/tools/
-#tar -czvf tcc_tools_target_2022.1.0.tar.gz usr
+cd ${dirBuildRoot}/build
+rm -rf usr
+tar -xzf tcc_tools_target_2022.1.0.tar.gz
+cp edk2/Build/Shell/RELEASE_GCC5/X64/tcc_rt_checker.efi usr/share/tcc_tools/tools/
+tar -czvf tcc_tools_target_2022.1.0.tar.gz usr
 
 # End of target build.
 # Rename the "build" folder to "build-target"
-#cd ${dirBuildRoot}
-#mv ${dirBuildRoot}/build ${dirBuildRoot}/build-target
+cd ${dirBuildRoot}
+mv ${dirBuildRoot}/build ${dirBuildRoot}/build-target
