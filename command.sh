@@ -9,15 +9,15 @@
 #yum -y install git
 #yum -y install shellcheck
 
-apt-get install gcc-c++
-apt-get install centos-release-scl
-apt-get install devtoolset-8-gcc devtoolset-8-gcc-c++
-scl enable devtoolset-8 -- bash
+sudo apt-get install gcc-c++
+sudo apt-get install centos-release-scl
+sudo apt-get install devtoolset-8-gcc devtoolset-8-gcc-c++
+sudo scl enable devtoolset-8 -- bash
 
-apt-get install cmake
-apt-get install make
-apt-get install git
-apt-get install shellcheck
+sudo apt-get install cmake
+sudo apt-get install make
+sudo apt-get install git
+sudo apt-get install shellcheck
 
 
 
