@@ -78,12 +78,12 @@ git clone https://github.com/tianocore/edk2.git
 cd edk2
 git checkout tags/edk2-stable202105 -B edk2-stable202105
 git submodule update --init
-make -C BaseTools
+#make -C BaseTools
 
 rm -rf ${dirBuildRoot}/build/edk2
 cp -r /opt/edk2 ${dirBuildRoot}/build/
 cd ${dirBuildRoot}/build
-make -C edk2/BaseTools
+#make -C edk2/BaseTools
 cd edk2
 shellcheck source=/dev/null
 source edksetup.sh-
