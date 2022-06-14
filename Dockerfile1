@@ -1,5 +1,5 @@
 #FROM centos:centos7.9.2009
-from ubuntu
+from ubuntu:18.04
 
 #RUN mkdir /home
 WORKDIR /home
