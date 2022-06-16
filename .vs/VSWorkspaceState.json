@@ -1,11 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\home",
-    "\\home\\build",
-    "\\home\\tcc",
+    "\\build",
     "\\home\\tcc\\build",
     "\\home\\tcc\\build\\build"
   ],
+  "SelectedNode": "\\build\\tcc_tools_target_2022.1.0.tar.gz",
   "PreviewInSolutionExplorer": false
 }

@@ -84,18 +84,18 @@ rm -rf ${dirBuildRoot}/build/edk2
 cp -r /opt/edk2 ${dirBuildRoot}/build/
 cd ${dirBuildRoot}/build
 #make -C edk2/BaseTools
-cd edk2
-shellcheck source=/dev/null
-source edksetup.sh-
-patch -p1 < ${dirBuildRoot}/libraries.compute.tcc-tools.infrastructure/ci/edk2/tcc_target.patch
-sed -i "s+path_to_detector.inf+${dirBuildRoot}/libraries.compute.tcc-tools/tools/rt_checker/efi/Detector.inf+g" ShellPkg/ShellPkg.dsc
+#cd edk2
+#shellcheck source=/dev/null
+#source edksetup.sh-
+#patch -p1 < ${dirBuildRoot}/libraries.compute.tcc-tools.infrastructure/ci/edk2/tcc_target.patch
+#sed -i "s+path_to_detector.inf+${dirBuildRoot}/libraries.compute.tcc-tools/tools/rt_checker/efi/Detector.inf+g" ShellPkg/ShellPkg.dsc
 #build
 
 cd ${dirBuildRoot}/build
 rm -rf usr
-tar -xzf tcc_tools_target_2022.1.0.tar.gz
-cp edk2/Build/Shell/RELEASE_GCC5/X64/tcc_rt_checker.efi usr/share/tcc_tools/tools/
-tar -czvf tcc_tools_target_2022.1.0.tar.gz usr
+#tar -xzf tcc_tools_target_2022.1.0.tar.gz
+#cp edk2/Build/Shell/RELEASE_GCC5/X64/tcc_rt_checker.efi usr/share/tcc_tools/tools/
+#tar -czvf tcc_tools_target_2022.1.0.tar.gz usr
 
 # End of target build.
 # Rename the "build" folder to "build-target"
