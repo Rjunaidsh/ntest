@@ -1,2 +1,2 @@
 
-RUN apt-get install -y g++ cmake build-essential 
+sudo su apt-get install -y g++ cmake build-essential 
